@@ -36,7 +36,7 @@ def check_cpu():
     if psutil.cpu_percent(1) > 75:
         print("\tCPU usage is grater than 75%!!")
     else:
-        print("\tCPU Usage is good.")
+        print("\tCPU usage is good.")
 
 def main():
     print("Comprehensive system check:")
