@@ -2,6 +2,7 @@
 import os
 import shutil
 import sys
+import socket
 
 def check_reboot():
     """Returns True if the computer has a pending reboot."""
@@ -22,8 +23,17 @@ def check_disk_usage(disk, min_gb, min_percent):
         return False
     return True
 
+def check_network():
+    try:
+        socket.gethostbyname("www.google.com")
+        print("\tYou are connected to the network.")
+    except:
+        print("\tYou are not connected to the network.")
+
+
 def main():
     print("Comprehensive system check:")
+    check_network()
     #calling the check_reboot function
     check_reboot()
     #Check for at least 10 GB and 20% free
@@ -31,7 +41,7 @@ def main():
         print("\tDisk Usage: ERROR: Not enough space.")
         sys.exit(1)
     else: 
-        print("\tDisk Usage: Everything is ok.")
+        print("\tDisk Usage: Ok.")
         sys.exit(0)
 
 main()
