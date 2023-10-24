@@ -30,7 +30,6 @@ def check_network():
     except:
         print("\tYou are not connected to the network.")
 
-
 def main():
     print("Comprehensive system check:")
     check_network()
