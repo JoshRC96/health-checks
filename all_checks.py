@@ -3,6 +3,7 @@ import os
 import shutil
 import sys
 import socket
+import psutil
 
 def check_reboot():
     """Returns True if the computer has a pending reboot."""
@@ -30,11 +31,18 @@ def check_network():
     except:
         print("\tYou are not connected to the network.")
 
+def check_cpu():
+    """Checks if the cpu usage is grater than 75%"""
+    if psutil.cpu_percent(1) > 75:
+        print("\tCPU usage is grater than 75%!!")
+    else:
+        print("\tCPU Usage is good.")
+
 def main():
     print("Comprehensive system check:")
     check_network()
-    #calling the check_reboot function
     check_reboot()
+    check_cpu()
     #Check for at least 10 GB and 20% free
     if not check_disk_usage(disk="/", min_gb=10, min_percent=20):
         print("\tDisk Usage: ERROR: Not enough space.")
