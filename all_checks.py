@@ -6,8 +6,8 @@ import socket
 import psutil
 
 def check_reboot():
-    """Returns True if the computer has a pending reboot."""
-    result = os.path.exists("/run/reboot-required")
+    """Checks if the computer needs a reboot."""
+    result = os.path.exists("/run/reboot-required") # Returns True if the computer has a pending reboot.
     if result == True:
         print("\tThe computer needs to reboot.")
     else:
@@ -25,6 +25,7 @@ def check_disk_usage(disk, min_gb, min_percent):
     return True
 
 def check_network():
+    """Checks if the computer is connected to the network/internet"""
     try:
         socket.gethostbyname("www.google.com")
         print("\tYou are connected to the network.")
