@@ -19,5 +19,4 @@ Customize the script (if needed) by adjusting the parameters in the 'main()' fun
     Modify the min_gb and min_percent values in check_disk_usage() to set your desired
         disk space thresholds.
     Customize the error message or thresholds in the other functions as necessary.
-
 The script will perform the system checks and display the results. If any issues are detected, it will provide error messages and return a non-zero exit code. A successful check will return a zero exit code.
